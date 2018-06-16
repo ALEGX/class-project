@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[25]:
+# In[30]:
 
 
 import csv
@@ -49,6 +49,11 @@ for k in range(check2 + sp_help , len(data) , sp_help):
                 row = data[k+1]
                 result[i] = result[i] + int(row[i+4])/730
 plt.plot(result)
+plt.xticks(range(20),range(5,25))
+plt.rc('font',family='Malgun Gothic')
+plt.xlabel('시간')
+plt.ylabel('혼잡도')
+plt.title(name_station)
 plt.show()
 
 var1 = (result[0] + result[1] + result[2] + result[3] + result[4]) / 5
@@ -60,9 +65,9 @@ h2 = var2/(var1 + var2 + var3)
 h3 = var3/(var1 + var2 + var3)
 
 if (var1 / (var1 + var2 + var3))+(var3/(var1 + var2 + var3)) >=0.7:
-    print("이 지역은 경제중심지입니다.")
+    print("이 지역은 경제중심지 혹은 교통중심지입니다.")
 elif (var2 / (var1 + var2 + var3)) >=0.35:
-    print("이 지역은 관광지입니다.")
+    print("이 지역은 관광지 혹은 관광지의 중간로입니다.")
 elif (var1 / (var1 + var2 + var3)) >=0.35:
     print("이 지역은 교통중간로입니다.")
 elif (var3 / (var1 + var2 + var3)) >=0.35:
